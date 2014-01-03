@@ -1,0 +1,33 @@
+{
+	"ImportPath": "beeapp",
+	"GoVersion": "go1.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/astaxie/beego",
+			"Comment": "v1.0.1-17-gecfd11a",
+			"Rev": "ecfd11adb4a16d26d41bcf8802f9bd0e6c81220f"
+		},
+		{
+			"ImportPath": "github.com/beego/goyaml2",
+			"Comment": "2.0",
+			"Rev": "5545475820ddd4db3f90a4900d44b65d077d702d"
+		},
+		{
+			"ImportPath": "github.com/beego/redigo/redis",
+			"Rev": "856744a0d55bbc9f94897dcd29ed48a0d978feed"
+		},
+		{
+			"ImportPath": "github.com/beego/x2j",
+			"Rev": "a0352aadc5420072ebe692481a5d6913d77f8cf0"
+		},
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "go1",
+			"Rev": "9a7aa3606b82e2081a13a008ada88dfdb96c20fd"
+		},
+		{
+			"ImportPath": "github.com/wendal/errors",
+			"Rev": "f66c77a7882b399795a8987ebf87ef64a427417e"
+		}
+	]
+}

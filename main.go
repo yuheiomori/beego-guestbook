@@ -3,10 +3,13 @@ package main
 import (
 	"beeapp/models"
 	_ "beeapp/routers"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"net/url"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -23,15 +26,6 @@ func nl2br(in string) (out string) {
 	return
 }
 
-func init() {
-	orm.RegisterDataBase("default", "mysql", os.Getenv("BEEAPP_DB"), 30)
-	orm.RegisterModel(new(models.Greeting))
-
-	beego.AddFuncMap("dateformat", dateformat)
-	beego.AddFuncMap("nl2br", nl2br)
-
-}
-
 // テーブルがなければ作成する
 func syncdb() {
 	err := orm.RunSyncdb("default", false, true)
@@ -40,7 +34,37 @@ func syncdb() {
 	}
 }
 
+// データソース文字列を変換
+func convert_datasource(ds string) (result string) {
+	url, _ := url.Parse(ds)
+	result = fmt.Sprintf("%s@tcp(%s:3306)%s", url.User.String(), url.Host, url.Path)
+	beego.Info(result)
+	return
+}
+
+func init() {
+
+	var datasource string
+	// for heroku with cleardb
+	if os.Getenv("CLEARDB_DATABASE_URL") != "" {
+		datasource = convert_datasource(os.Getenv("CLEARDB_DATABASE_URL"))
+	} else {
+		datasource = "user:pass@/database_name?charset=utf8"
+	}
+	orm.RegisterDataBase("default", "mysql", datasource, 30)
+	orm.RegisterModel(new(models.Greeting))
+
+	beego.AddFuncMap("dateformat", dateformat)
+	beego.AddFuncMap("nl2br", nl2br)
+
+}
+
 func main() {
+	port, err := strconv.Atoi(os.Getenv("PORT"))
+	if err == nil {
+		beego.HttpPort = port
+	}
+
 	syncdb()
 	beego.Run()
 }
