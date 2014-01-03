@@ -1,8 +1,8 @@
 package main
 
 import (
-	"beeapp/models"
-	_ "beeapp/routers"
+	"beego-guestbook/models"
+	_ "beego-guestbook/routers"
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

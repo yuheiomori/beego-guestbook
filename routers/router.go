@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"beeapp/controllers"
+	"beego-guestbook/controllers"
 	"github.com/astaxie/beego"
 )
 

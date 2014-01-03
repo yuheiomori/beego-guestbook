@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"beeapp/models"
+	"beego-guestbook/models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )

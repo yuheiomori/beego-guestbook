@@ -1,1 +1,1 @@
-web: beeapp
+web: beego-guestbook
