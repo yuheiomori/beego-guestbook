@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
   </head>
   <body>
+    <a href="https://github.com/yuhei0718/beego-guestbook"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+
     <div id="main">
       <h1>ゲストブック</h1>
       <div id="form-area">
