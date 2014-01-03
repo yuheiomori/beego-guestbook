@@ -1,9 +1,9 @@
-Beego Guestbook
+# Beego Guestbook
 
 This is sample guestbook app with beego.
 
 
-#### upload to heroku
+## upload to heroku
 
 ```
 $ heroku create -b https://github.com/kr/heroku-buildpack-go.git
